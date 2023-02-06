@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue3</title>
+    <script src="../js/vue.global.js"></script>
+    <!-- <script src="https://unpkg.com/vue@3"></script> -->
+  </head>
+  <body>
+    <div id="app">
+      <!--HTML DOM template-->
+      <h1>{{message}}</h1>
+      <p v-show="loading">Loading(v-show)</p>
+      <!--資料都在-->
+      <p v-if="loading">Loading(v-if)</p>
+      <!--資料不見的都在-->
+    </div>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            message: "Hello Vue!",
+            loading: false,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

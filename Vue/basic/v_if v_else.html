@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue3</title>
+    <script src="../js/vue.global.js"></script>
+    <!-- <script src="https://unpkg.com/vue@3"></script> -->
+  </head>
+  <body>
+    <div id="app">
+      <!--HTML DOM template-->
+      <h1>What did u get in Vue.js</h1>
+      ur score: <input v-model="score" />
+      <p v-if="score<0 || score>100">pass!</p>
+      <p v-else-if="score>70">pass!</p>
+      <p v-else="">fail!</p>
+    </div>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            message: "Hello Vue!",
+            score: 0,
+          };
+        },
+      }).mount("#app");
+
+      if (score < 0 || score > 100) {
+      } else if (score > 70) {
+      } else {
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue3</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- <script src="https://unpkg.com/vue@3"></script> -->
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="(color, index) in colors">{{color}}</li>
+      </ul>
+      <ul>
+        <li v-for="item in man">{{item}}</li>
+      </ul>
+      <div><p v-for="coms in man">{{item.age}}</p></div>
+    </div>
+
+    <script>
+      vue
+        .createApp({
+          data() {
+            return {
+              message: "Hello Vue!",
+              score: 0,
+              colors: [
+                "red",
+                "orange",
+                "yellow",
+                "green",
+                "blue",
+                "indigo",
+                "purple",
+              ],
+              man: {
+                age: 23,
+                gender: man,
+                height: 173,
+              },
+            };
+          },
+        })
+        .mount("#app");
+    </script>
+  </body>
+</html>
