@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue3</title>
+    <script src="../js/vue.global.js"></script>
+    <!-- <script src="https://unpkg.com/vue@3"></script> -->
+  </head>
+  <body>
+    <div id="app">
+      <img :src="imgUrl" :alt="title" srcset="" />
+      <hr />
+      <p v-for="color in colors"><font :color="color">Lorem</font></p>
+    </div>
+
+    <script>
+      const App = Vue.createApp({
+        data() {
+          return {
+            imgUrl: "https://unsplash.com/photos/cX9-WJW7C-0",
+            title: "小心",
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

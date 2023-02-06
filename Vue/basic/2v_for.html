@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Vue3</title>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../js/vue.global.js"></script>
     <!-- <script src="https://unpkg.com/vue@3"></script> -->
   </head>
   <body>
@@ -18,30 +18,18 @@
     </div>
 
     <script>
-      vue
-        .createApp({
-          data() {
-            return {
-              message: "Hello Vue!",
-              score: 0,
-              colors: [
-                "red",
-                "orange",
-                "yellow",
-                "green",
-                "blue",
-                "indigo",
-                "purple",
-              ],
-              man: {
-                age: 23,
-                gender: man,
-                height: 173,
-              },
-            };
-          },
-        })
-        .mount("#app");
+      const App = Vue.createApp({
+        data() {
+          return {
+            message: "Hello Vue!",
+            years: [2013, 2012, 2015, 2020, 2022, 2023],
+            month: ["Jan", "Feb", "Mar", "Apr", "May", "June"],
+            selectYear: new Date().getFullYear(),
+            selectMonth: new Date().getMonth() + 1,
+            selectDate: new Date().getDate(),
+          };
+        },
+      }).mount("#app");
     </script>
   </body>
 </html>
