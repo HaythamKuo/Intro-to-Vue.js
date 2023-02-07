@@ -9,19 +9,35 @@
   </head>
   <body>
     <div id="app">
-      <h1>{{message}}</h1>
-      <button @click="action">click</button>
+      <p>身高：<input v-model="height" /></p>
+      <p>體重：<input v-model="weight" /></p>
+      <p>BMI:<span>{{calculate}}</span></p>
     </div>
 
     <script>
       Vue.createApp({
         data() {
           return {
-            message: "hello",
+            height: 0,
+            weight: 0,
+            calculate: this.weight / (this.height / 100),
           };
         },
-        methods: {},
-      });
+        methods: {
+          //函數大部分放這裡
+        },
+        computed: {
+          //函數也可以放這裡 但不能傳參數 要有回傳值
+          calculate() {
+            if (this.weight > 0 && this.height > 0) {
+              let BMI = this.weight / Math.pow(this.height / 100, 2);
+              return BMI.toFixed(2);
+            } else {
+              return 0;
+            }
+          },
+        },
+      }).mount("#app");
     </script>
   </body>
 </html>
