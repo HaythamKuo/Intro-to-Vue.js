@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/vue.global.js"></script>
+    <style>
+      .btn {
+        background-color: cadetblue;
+        color: darkorange;
+        border-radius: 5px;
+      }
+      .notetxt {
+        background-color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- v-moel的修飾符-->
+    <div id="app">
+      <input type="text" v-model="message" />
+      <!--綁定class-->
+      <!-- <button class="btn notetxt">Click me</button> -->
+      <button :class="btnClass">Click me</button>
+    </div>
+
+    <script>
+      const app = {
+        data() {
+          return {
+            message: "",
+          };
+        },
+        methods: {},
+        computed: {
+          btnClass() {
+            if (this.message.length == 0) {
+              return "btn notetxt";
+            } else {
+              return "btn";
+            }
+            if (this.message.length == 0) {
+              return {
+                btn: true,
+                notetxt: true,
+              };
+            } else {
+              return {
+                btn: true,
+                notetxt: false,
+              };
+            }
+          },
+        },
+      };
+
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>

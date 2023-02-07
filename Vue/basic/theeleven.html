@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/vue.global.js"></script>
+    <style>
+      ol li {
+        font: 18px Tahoma;
+        background-color: gray;
+        margin: 5px;
+        padding: 5px;
+      }
+      ol li:hover {
+        cursor: pointer;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      ur Task: <input v-model="newTask" @keyup.enter="addTask" />
+      <ol>
+        <li v-for="task in tasks">{{task}}</li>
+      </ol>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            task: [],
+            newTask: "",
+          };
+        },
+        methods: {
+          addTask() {
+            this.tasks.push();
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

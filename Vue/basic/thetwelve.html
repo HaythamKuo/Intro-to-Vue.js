@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/vue.global.js"></script>
+  </head>
+  <body>
+    <!-- v-moel的修飾符-->
+    <div id="app">
+      Message: <input v-model="message" />
+      <h1>{{message}}</h1>
+      <hr />
+      Message(lazy): <input v-model.lazy="message" />
+      <h1>{{message}}</h1>
+      <hr />
+      Message(lazy): <input v-model.lazy.number="num" />
+      <h1>{{num}}</h1>
+      <hr />
+      Message(lazy): <input v-model.trim="Name" />
+      <h1>{{Name}}</h1>
+    </div>
+
+    <script>
+      const app = {
+        data() {
+          return {
+            message: "",
+            num: 0,
+            Name: "",
+          };
+        },
+        methods: {},
+        computed: {},
+      };
+
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/vue.global.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <!-- v-moel的修飾符-->
+    <div id="app">
+      <!-- <input type="text" v-model="message" />
+      <h1>{{message}}</h1> -->
+      <input type="text" @keyup="setMes" :value="message" />
+      <p>{{message}}</p>
+      <hr />
+      <textarea v-model="message" cols="20" rows="5" @click="action"></textarea>
+      <p :style="setCSS">{{message}}</p>
+      <hr />
+      <p v-pre>{{Wilson Ren}}</p>
+    </div>
+
+    <script>
+      const app = {
+        data() {
+          return {
+            message: "",
+            size: 16,
+          };
+        },
+        methods: {
+          setMes(e) {
+            this.message = e.target.value;
+          },
+          action(e) {
+            // alert(getComputedStyle(e.target).font);
+          },
+        },
+        computed: {
+          setCSS() {
+            return {
+              font: "13.43333px monospace",
+              whiteSpace: "pre",
+            };
+          },
+        },
+      };
+
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>
