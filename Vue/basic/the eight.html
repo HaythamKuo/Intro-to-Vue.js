@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <ul></ul>
+    </div>
+
+    <script>
+      <button id="thebtn">Action</button>;
+      let buttons = document.getElementById("thebtn");
+      buttons.addEventListener("click", (e) => {
+        console.log(e.target.nodeName);
+        console.log(this.nodeName);
+        console.log(e.type);
+      });
+      //this 在JS中代表執行當下的外層物件 所以this在執行當下才有意義
+      //this代表哪一個物件 跟他的情境(context)有關
+
+      function action() {
+        console.log(this);
+      } //呼叫action() 回傳物件為window
+      let man = {
+        name: "Ken",
+        sayHi() {
+          console.log(this);
+        },
+      }; //呼叫man.sayHi() 回傳man物件
+
+      let ans = function () {
+        console.log(this);
+      }; //呼叫ans() 回傳window物件(IIFE)
+
+      let hello = (function (Name) {
+        console.log(`hello, ${Name}`);
+      })("Ken");
+
+      //arrow function -- 內部的this和外部的this代表相同的物件
+      let arrow = () => {
+        console.log(this);
+      }; //呼叫arrow() //回傳window物件
+      let men = {
+        name: "Ken",
+        sayHi: () => console.log(this),
+      };
+
+      //============================================
+      const app = Vue.createApp({
+        data() {
+          return {
+            colors: ["red", "blue", "green"],
+            message: "Hello",
+          };
+        },
+        methods: {
+          showColor(theColor) {
+            alert(this.colors);
+            alert(`${this.message},${theColor}`);
+          },
+          action() {
+            alert(`hi, Vue`);
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

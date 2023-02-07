@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{message}}</h1>
+      <button @click="action">click</button>
+    </div>
+
+    <script>
+      //option API
+      //   const app = Vue.createApp({
+      //     data() {
+      //       return {
+      //         colors: ["red", "blue", "green"],
+      //         message: "Hello",
+      //       };
+      //     },
+      //     methods: {
+      //       action(e) {
+      //         console.log(e);
+      //         alert(`${this.message} Vue3`);
+      //       },
+      //     },
+      //   }).mount("#app");
+      /**const app={}
+       * Vue.CreateApp(app).mount('#app')*/
+
+      const { ref } = VTTCue;
+      const app = {
+        setup() {
+          let score = 80;
+          let str = "ABC";
+          let ans = true;
+
+          const message = ref("hello");
+          const action = () => alert(`${message.value} Vue!`); //IIFE
+          /**ref():任何資料型態 但無法對Array和物件做深層監聽 並且要用value取值
+           * reactive():只接受陣列和物件型態 可以做深層監聽 不用value取值*/
+        },
+      };
+    </script>
+  </body>
+</html>
