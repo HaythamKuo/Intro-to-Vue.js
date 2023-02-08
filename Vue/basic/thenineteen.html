@@ -6,11 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="../js/vue.global.js"></script>
-    <style></style>
+    <style>
+      img {
+        max-width: 400px;
+        max-height: 400px;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
       <input type="file" @change="filechange" multiple />
+      <p>{{image}}</p>
+      <img :src="image" alt="" />
     </div>
 
     <script>
@@ -18,8 +25,7 @@
         data() {
           return {
             message: "",
-            interest: ["read"], //如果要預選的話就用這方式
-            agree: false,
+            image: "",
           };
         },
         methods: {
@@ -30,10 +36,21 @@
             let file = e.target.files[0];
             let readFile = new FileReader();
             // readFile.readAsDataURL(file);
-            readFile.readAsText(file); //可以找到檔案檔名
-            readFile.addEventListener("load", (e) => {
-              console.log(readFile.result);
+            readFile.readAsDataURL(file);
+            readFile.addEventListener("load", this.loadImage);
+
+            /**不要這樣寫
+             * readFile.addEventListener('load',function(){this.image=readFile.result})
+             * 就是小括號大括號 */
+            /**解決方式
+             * 1. 可以改成arrow fucntion*/
+            readFile.addEventListener("load", () => {
+              this.image = readFile.result;
             });
+            /**2. 將處理函數寫成單獨的函數*/
+          },
+          loadImage(e) {
+            this.image = e.target.result;
           },
         },
         computed: {},

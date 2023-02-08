@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/vue.global.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <button @click="update">Add</button> -->
+      <button @click="count+=1">Add</button>
+      <button id="delbtn">Delete</button>
+      <h3>{{count}}</h3>
+    </div>
+
+    <script>
+      const app = {
+        data() {
+          return {
+            count: 0,
+          };
+        },
+        methods: {},
+        computed: {},
+        beforeCreate() {},
+        created() {
+          //常用
+        },
+        beforeMount() {},
+        mounted() {
+          //常用 非同步都放在這
+        },
+        beforeUpdate() {},
+        updated() {
+          //常用
+        },
+        beforeUnmount() {},
+      };
+      const vm = Vue.createApp(app);
+      vm.mount("#app");
+    </script>
+  </body>
+</html>

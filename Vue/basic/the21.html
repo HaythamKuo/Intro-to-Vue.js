@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/vue.global.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <!--掛載就是將Vue instance和HTML DOM做連結-->
+      <h1>{{message}}</h1>
+    </div>
+
+    <script>
+      //1. 先宣告 再掛載
+      //       const app = {
+      //         data() {
+      //           return {
+      // message:'hello',
+      //           };
+      //         },
+      //         methods: {},
+      //         computed: {},
+      //       };
+      //       const vm = Vue.createApp(app);
+      //       vm.mount("#app");
+      //2. 用template和html dom做連結
+      const app = {
+        data() {
+          return {
+            message: "hello",
+          };
+        },
+        template: `
+    <h1>text</h1>
+    <h2>text</h2>
+    <h3>ahah</h3>
+    <h4>text</h4>
+    `,
+      };
+      const vm = Vue.createApp(app);
+      vm.mount("#app");
+    </script>
+  </body>
+</html>
