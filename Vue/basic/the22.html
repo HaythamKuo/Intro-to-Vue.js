@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/vue.global.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <!--偵聽器 來偵聽data和computed的變化-->
+    <div id="app">
+      <input v-model.lazy="num" />
+      <p>{{numSquare}}</p>
+    </div>
+
+    <script>
+      const app = {
+        data() {
+          return {
+            message: "",
+            num: 0,
+          };
+        },
+        methods: {},
+        computed: {
+          numSquare() {
+            return Math.pow(this.num, 2);
+          },
+        },
+        watch: {
+          //宣告成函數(方法)
+          // 只有一個參數 表示改變之後的結果 num(val){
+          //     console.log(`num:${val}`);
+          // }
+          //若有兩個參數 第一個改變之後的結果：第二個是原本的值
+          //   num(newVal, oldVal) {
+          //     console.log(`num:${oldval} --->${newVal}`);
+          //   },
+          numSquare(newVal, oldVal) {
+            console.log(`numSquare:${oldVal}--->${newVal}`);
+          },
+          //物件
+          num: {
+            handler(newVal, oldVal) {
+              console.log(`num:${oldval} --->${newVal}`);
+            },
+          },
+        },
+      };
+
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>
