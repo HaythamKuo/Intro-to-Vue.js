@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/vue.global.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <input type="checkbox" v-model="interest" value="sleep" />睡覺
+      <input type="checkbox" v-model="interest" value="read" />閱讀
+      <input type="checkbox" v-model="interest" value="game" checked />電動
+      <input type="checkbox" v-model="interest" value="travel" />旅遊
+      <input type="checkbox" v-model="interest" value="diving" />潛水
+      <!--複選要選陣列-->
+      <p>{{interest}}</p>
+    </div>
+    <hr />
+    <input type="checkbox" v-model="agree" />我同意
+    <p>{{agree}}</p>
+    <script>
+      const app = {
+        data() {
+          return {
+            message: "",
+            interest: ["read"], //如果要預選的話就用這方式
+            agree: false,
+          };
+        },
+        methods: {},
+        computed: {},
+      };
+
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>
