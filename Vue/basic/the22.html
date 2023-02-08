@@ -30,7 +30,7 @@
           },
         },
         watch: {
-          //宣告成函數(方法)
+          //1. 宣告成函數(方法)
           // 只有一個參數 表示改變之後的結果 num(val){
           //     console.log(`num:${val}`);
           // }
@@ -41,11 +41,13 @@
           numSquare(newVal, oldVal) {
             console.log(`numSquare:${oldVal}--->${newVal}`);
           },
-          //物件
+          //2. 物件
           num: {
             handler(newVal, oldVal) {
               console.log(`num:${oldval} --->${newVal}`);
             },
+            immediate: true, //false by default, if true -->當Vue一建立(create)立刻執行watch
+            deep: false, //false by default, if true -->下一個程式
           },
         },
       };
