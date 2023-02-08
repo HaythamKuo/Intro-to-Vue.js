@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/vue.global.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <input type="file" @change="filechange" multiple />
+    </div>
+
+    <script>
+      const app = {
+        data() {
+          return {
+            message: "",
+            interest: ["read"], //如果要預選的話就用這方式
+            agree: false,
+          };
+        },
+        methods: {
+          filechange(e) {
+            // console.log(e.target);
+            // console.log(this); //Vue的ES6的Proxy
+
+            let file = e.target.files[0];
+            let readFile = new FileReader();
+            // readFile.readAsDataURL(file);
+            readFile.readAsText(file); //可以找到檔案檔名
+            readFile.addEventListener("load", (e) => {
+              console.log(readFile.result);
+            });
+          },
+        },
+        computed: {},
+      };
+
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>
